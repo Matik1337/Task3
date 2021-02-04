@@ -4,20 +4,26 @@ using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
+
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D _rb;
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private bool _isGrounded;
+    
+    private Rigidbody2D _rb;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
-    private void Start()
+    private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
         _speed = 5f;
-        _jumpForce = 2000f;
+        _jumpForce = 2000f; 
         _isGrounded = false;
+        
+        _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }

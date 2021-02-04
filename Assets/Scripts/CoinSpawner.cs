@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoinSpawner : MonoBehaviour
 {
     [SerializeField] private SpawnPoint[] _points;
-    [SerializeField] private GameObject _coin;
+    [SerializeField] private Coin _coin;
     void Start()
     {
         _points = GetComponentsInChildren<SpawnPoint>();
@@ -18,6 +18,7 @@ public class CoinSpawner : MonoBehaviour
         foreach (var point in _points)
         {
             Instantiate(_coin, point.transform);
+            
             yield return new WaitForSeconds(5);
         }
     }

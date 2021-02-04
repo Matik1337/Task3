@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: []
-  _coin: {fileID: 1428604337311865908, guid: d97d559a558563b43a896c9fa4d1a146, type: 3}
+  _coin: {fileID: 6075263617814472795, guid: d97d559a558563b43a896c9fa4d1a146, type: 3}
 --- !u!4 &378004916
 Transform:
   m_ObjectHideFlags: 0
