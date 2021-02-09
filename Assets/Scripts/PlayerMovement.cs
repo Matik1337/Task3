@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _jumpForce;
     [SerializeField] private bool _isGrounded;
     
-    private Rigidbody2D _rb;
+    private Rigidbody2D _rigidbody2D;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private void Awake()
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         _jumpForce = 2000f; 
         _isGrounded = false;
         
-        _rb = GetComponent<Rigidbody2D>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -32,25 +32,36 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            _rb.velocity = Vector2.right * _speed;
-            _animator.SetBool("isRunning", true);
-            _spriteRenderer.flipX = false;
+            HorizontalMove(Vector2.right);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            _rb.velocity = Vector2.left * _speed;
-            _animator.SetBool("isRunning", true);
-            _spriteRenderer.flipX = true;
+            HorizontalMove(Vector2.left);
         }
         else
         {
-            _rb.velocity = Vector2.zero;
+            _rigidbody2D.velocity = Vector2.zero;
             _animator.SetBool("isRunning", false);
         }
 
         if (Input.GetKey(KeyCode.W) && _isGrounded)
         {
-            _rb.AddForce(Vector2.up * _jumpForce);
+            _rigidbody2D.AddForce(Vector2.up * _jumpForce);
+        }
+    }
+
+    private void HorizontalMove(Vector2 direction)
+    {
+        _rigidbody2D.velocity = direction * _speed;
+        _animator.SetBool("isRunning", true);
+
+        if (direction == Vector2.right)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else
+        {
+            _spriteRenderer.flipX = true;
         }
     }
 

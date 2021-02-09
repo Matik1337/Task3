@@ -10,9 +10,7 @@
           <e p="Coin.cs" t="Include" />
           <e p="CoinSpawner.cs" t="Include" />
           <e p="EnemyMove.cs" t="Include" />
-          <e p="HouseSafety.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
-          <e p="SignalingControl.cs" t="Include" />
           <e p="SpawnPoint.cs" t="Include" />
         </e>
       </e>

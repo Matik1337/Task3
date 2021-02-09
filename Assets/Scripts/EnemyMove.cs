@@ -19,7 +19,9 @@ public class EnemyMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == 9)
+        PlayerMovement playerMovement;
+        
+        if (other.gameObject.TryGetComponent(out playerMovement))
         {
             Destroy(other.gameObject);
         }
