@@ -12,7 +12,7 @@ public class EnemyMove : MonoBehaviour
         _dictance = 5f;
     }
 
-    void Update()
+    private void Update()
     {
         transform.position = new Vector2(Mathf.PingPong(Time.time, _dictance), transform.position.y);
     }

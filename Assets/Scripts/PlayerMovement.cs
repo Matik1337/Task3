@@ -67,7 +67,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == 8)
+        Ground ground;
+        
+        if (TryGetComponent(out ground))
         {
             _isGrounded = true;
         }
@@ -75,7 +77,9 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.layer == 8)
+        Ground ground;
+        
+        if (TryGetComponent(out ground))
         {
             _isGrounded = false;
         }

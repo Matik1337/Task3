@@ -7,7 +7,9 @@ public class Coin : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.layer == 9)
+        PlayerMovement playerMovement;
+        
+        if(TryGetComponent(out playerMovement))
             Destroy(gameObject);
     }
 }
